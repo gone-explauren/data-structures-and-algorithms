@@ -115,19 +115,12 @@ The inventory is formatted like this:
 This function should use forEach to populate your grocery list based on the store's inventory. If the item is available, add it to your list. Return the final list.
 ------------------------------------------------------------------------------------------------ */
 // not passing. IDK what to do.
-let listArr = [];
-let inventory = [
-  { name: 'apples', available: true },
-  { name: 'pears', available: true },
-  { name: 'oranges', available: false },
-  { name: 'bananas', available: true },
-  { name: 'blueberries', available: false }
-];
 
 const createList = (availableItems) => {
-  availableItems.forEach(() => {
-    if (inventory.available === true) {
-      listArr.push(inventory.name);
+  let listArr = [];
+  availableItems.forEach((item) => {
+    if (item.available === true) {
+      listArr.push(item.name);
     }
   });
   return listArr;
@@ -148,19 +141,19 @@ Return the resulting output array.
 ------------------------------------------------------------------------------------------------ */
 // not passing, i is not defined an I don't know what to do with it.
 
-let outputArr = [];
 
 const fizzbuzz = (arr) => {
-  let num = arr[i];
+  let outputArr = [];
 
-  arr.forEach(() => {
-    if (num / 3 === 1 && num / 5 === 1) {
+  arr.forEach((num) => {
+    // % = modulous checks for remainders. 3 / 3 = 1, but 3 % 3 = 0 because these is nothing leftover.
+    if (num % 3 === 0 && num % 5 === 0) {
       outputArr.push('Fizz Buzz');
     }
-    else if (num / 3 === 1) {
+    else if (num % 3 === 0) {
       outputArr.push('Fizz');
     }
-    else if (num / 5 === 1) {
+    else if (num % 5 === 0) {
       outputArr.push('Buzz');
     }
     else {
@@ -222,7 +215,7 @@ describe('Testing challenge 6', () => {
   });
 });
 
-xdescribe('Testing challenge 7', () => {
+describe('Testing challenge 7', () => {
   const inputs = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
 
   test('It should print out messages or numbers', () => {
