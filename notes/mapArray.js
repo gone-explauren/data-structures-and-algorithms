@@ -9,9 +9,9 @@
 let arr = [1, 2, 3];
 let stringArr = ['one', 'two', 'three'];
 
-// let newArr = arr.map(num => {
-//   return num * 5;
-// });
+let newArr = arr.map(num => {
+  return num * 5;
+});
 
 // // or...
 
