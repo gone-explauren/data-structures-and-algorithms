@@ -136,12 +136,17 @@ Note: You must use reduce for this challenge. You may not use the built-in .reve
 
 const reversedString = (str) => {
   // turn a string into an array
-  let strArr = str.split();
-  return strArr.reduce((acc, crr) => {
-    return acc+crr;
-  }, '');
+  //   let strArr = str.split();
+  //   return[...strArr].reduce((acc, crr) => {
+  //     return acc+crr;
+  //   }, '');
+  // };
+  // is returning a string, but is not reversing...
+
+  // new attempt, thanks Kam
+  return [...str].reduce((acc, crr) => crr + acc);
+  // I don't understand why this worked but what I wrtoe didn't?
 };
-// is returning a string, but is not reversing...
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
