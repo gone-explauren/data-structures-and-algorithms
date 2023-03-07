@@ -143,9 +143,34 @@ const reversedString = (str) => {
   // };
   // is returning a string, but is not reversing...
 
-  // new attempt, thanks Kam
-  return [...str].reduce((acc, crr) => crr + acc);
-  // I don't understand why this worked but what I wrtoe didn't?
+  // new attempt, thanks for the help, Kam...
+  // return [...str].reduce((acc, crr) => crr + acc);
+  // I don't understand why this worked but what I wrote didn't?
+
+
+  // in class code review explaination...
+  // .reduce() is an array method which only works with arrays, so we must change the string into an array
+  // .split() will split at a specified character noted in the arguments
+  let result = str.split('');
+
+  // str is broken up into an array, with each character split apart into an index of the array
+  // console.log(result); ['C','o','d','e',' ','3','0','1']
+
+  // .reduce arguments do not need an i, cur is the current value in the array we are at
+  let reversed = result.reduce((acc, cur) => {
+
+    // acc + cur returns a string that is not reversed, so we switched to cur + acc and it works
+    // it's not math! a + b !== b + a
+    return cur + acc;
+
+    // set starting value (in this case '' because we want to return a string)
+  }, '');
+  return reversed;
+
+  // one-liner code
+  // one-liners don' need to have variables defined, don't need curly braces
+  // return str.split('').reduce((acc, cur) => cur + acc, '');
+  //this code also works :)
 };
 
 /* ------------------------------------------------------------------------------------------------
