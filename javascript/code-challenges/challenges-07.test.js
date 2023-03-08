@@ -123,7 +123,25 @@ const gruffaloCrumble = {
 
 const listFoods = (recipe) => {
   let result = [];
-  // Solution code here...
+  recipe.ingredients.forEach((ingredient) => {
+    // let firstSpace = ingredient.indexOf(' ');
+    // let withoutAmount = ingredient.slice(firstSpace + 1);
+    // let secondSpace = withoutAmount.indexOf(' ');
+    // let withoutUnits = withoutAmount.slice(secondSpace + 1);
+
+    // result.push(withoutUnits);
+
+    // // this works, but here is the short version ...
+    // let withoutAmount = ingredient.slice(ingredient.indexOf(' ') + 1);
+    // let withoutUnits = withoutAmount.slice(withoutAmount.indexOf(' ') +1);
+
+    // result.push(withoutUnits);
+
+
+    // even shorter ...
+    let withoutAmount = ingredient.slice(ingredient.indexOf(' ', 3) + 1);
+    result.push(withoutAmount);
+  });
   return result;
 };
 
