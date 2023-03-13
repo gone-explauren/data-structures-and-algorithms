@@ -8,7 +8,7 @@ Write a function named returnTen, takes in a string and uses split and splice to
 ------------------------------------------------------------------------------------------------ */
 
 function returnTen(str){
-  // Solution code here...
+  return str.slice(-10).split('');
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -26,7 +26,7 @@ For example:
 return: 23
 ------------------------------------------------------------------------------------------------ */
 const findMax = (matrix) => {
-  // Solution code here...
+  return Math.max(...matrix.map(arr => Math.max(...arr)));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -44,7 +44,7 @@ For example:
 return: 35
 ------------------------------------------------------------------------------------------------ */
 const totalSum = (matrix) => {
-  // Solution code here...
+  return matrix.map(arr => arr.reduce((a,b) => a+b, 0)).reduce((a,b) => a+b, 0);
 };
 
 
@@ -71,8 +71,11 @@ const alkiBeach = [33, 31, 147, 130, 27, 93, 38, 126, 141, 63, 46, 17];
 const cookieStores = [firstPike, seaTac, seattleCenter, capHill, alkiBeach];
 
 const grandTotal = (stores) => {
-  // Solution code here...
-
+  let newArr = [];
+  for(let i in stores[0]){
+    newArr.push(stores.map(arr => arr[i]).reduce((a,b) => a+b, 0));
+  }
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -86,7 +89,14 @@ Write a function named salesData that uses forEach to iterate over the hourlySal
 ------------------------------------------------------------------------------------------------ */
 
 const salesData = (hours, data) => {
-  // Solution code here...
+  let newArr = [];
+  hours.forEach((hour,idx) =>{
+    newArr.push({
+      sales: `${data[idx]} cookies`,
+      time: hour
+    });
+  });
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -111,7 +121,17 @@ const errands = [
 ];
 
 const howManyTreats = (arr) => {
-  // Solution code here...
+  let newArr = arr.map(obj => obj.items);
+  console.log(newArr);
+  let x;
+  for(let i in newArr){
+    for(let j in newArr[i]){
+      if(newArr[i][j].name==='Treats'){
+        x=newArr[i][j].quantity;
+      }
+    }
+  }
+  return x;
 };
 
 /* ------------------------------------------------------------------------------------------------
