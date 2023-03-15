@@ -98,7 +98,7 @@ Write a function named findTagNames that iterates over an array of HTML strings 
 
 For example, findTagNames(['<h1>Hello, world!</h1>', '<p>Welcome to my site</p>']) returns ['/h1', '/p'].
 findTagNames(['<div><h1>Hello, world!</h1></div>', '<p>Welcome to my site</p>']) returns ['/h1', '/div', '/p'].
------------------------------------------------------------------------------------------------- */
+------------------------------------------------------------------------------------------------- */
 
 const findTagNames = elements => {
   // Solution code here...
