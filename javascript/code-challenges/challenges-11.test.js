@@ -19,7 +19,7 @@ Becomes:
 ------------------------------------------------------------------------------------------------ */
 
 function transformToLis(obj) {
-  // Solution code here...
+  return Object.entries(obj).map(kv => `<li>${kv[0]}: ${kv[1]}</li>`);
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -33,7 +33,7 @@ For example, count(5, [[1, 3, 5, 7, 9], [5, 5, 5], [1, 2, 3]]) returns 4.
 ------------------------------------------------------------------------------------------------ */
 
 const count = (target, input) => {
-  // Solution code here...
+  return input.flat().filter(num => num===target).length;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -47,7 +47,7 @@ For example, [[1, 2, 3, 4, 5], [6, 7, 2, 4, 5, 7], [9, 2, 3, 6,]] returns 66.
 ------------------------------------------------------------------------------------------------ */
 
 const totalSum = (input) => {
-  // Solution code here...
+  return input.flat().reduce((a,b) => a+b, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -64,7 +64,7 @@ For example, [ [0,2,5,4], [2,4,10], [] ] should return [ [1, 32], [1024], [] ].
 
 const divisibleByFiveTwoToThePower = (input) => {
   return input.map(arr => {
-    return arr.filter(val => typeof val === 'number' && val % 5 === 0).map(num => Math.pow(5, 2));
+    return arr.filter(val => typeof val === 'number' && val % 5 === 0).map(num => Math.pow(2, num));
   });
 };
 
@@ -131,7 +131,9 @@ let starWarsData = [{
 }];
 
 let findMaleAndFemale = (data) => {
-  // Solution code here...
+  return data.filter(obj => obj.gender==='male'||obj.gender==='female')
+  .map(obj => `${obj.name}`)
+  .join(' and ');
 };
 
 /* ------------------------------------------------------------------------------------------------
