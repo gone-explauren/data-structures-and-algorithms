@@ -33,7 +33,7 @@ For example, count(5, [[1, 3, 5, 7, 9], [5, 5, 5], [1, 2, 3]]) returns 4.
 ------------------------------------------------------------------------------------------------ */
 
 const count = (target, input) => {
-  return input.flat().filter(num => num===target).length;
+  return input.flat().filter(num => num === target).length;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -47,7 +47,7 @@ For example, [[1, 2, 3, 4, 5], [6, 7, 2, 4, 5, 7], [9, 2, 3, 6,]] returns 66.
 ------------------------------------------------------------------------------------------------ */
 
 const totalSum = (input) => {
-  return input.flat().reduce((a,b) => a+b, 0);
+  return input.flat().reduce((a, b) => a + b, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -131,9 +131,9 @@ let starWarsData = [{
 }];
 
 let findMaleAndFemale = (data) => {
-  return data.filter(obj => obj.gender==='male'||obj.gender==='female')
-  .map(obj => `${obj.name}`)
-  .join(' and ');
+  return data.filter(obj => obj.gender === 'male' || obj.gender === 'female')
+    .map(obj => `${obj.name}`)
+    .join(' and ');
 };
 
 /* ------------------------------------------------------------------------------------------------
