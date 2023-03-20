@@ -11,8 +11,9 @@ Write a function named screenForNames that takes in an array of strings and uses
 ------------------------------------------------------------------------------------------------ */
 
 const screenForNames = (arr) => {
-  // Solution code here...
-}
+  let regex = /^((Mr)|(Mrs)|(Ms)|(Dr))\.\s[a-zA-Z]+/;
+  return arr.filter(str => regex.test(str));
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -23,7 +24,11 @@ For example, ['apple', 'banana', 'MacGyver'] returns ['Apple', 'Banana', 'MacGyv
 ------------------------------------------------------------------------------------------------ */
 
 const toTitleCase = (arr) => {
-  // Solution code here...
+  return arr.map(character => {
+    let capCharacter = character.charAt(0).toUpperCase() + character.substring(1, character.length);
+
+    return capCharacter;
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -98,7 +103,18 @@ let starWarsData = [{
 }];
 
 let biggerThanLuke = (arr) => {
-  // Solution code here...
+  const luke = arr.find(char => char.name === 'Luke Skywalker');
+  // value to compare against is luke.mass
+  // mass is a string in this object, so we need to use parseInt to use it as a number
+  return arr
+    .filter(char => parseInt(char.mass) > parseInt(luke.mass)).reduce((str, currentChar, i, arr) => {
+      // we want just the name of the character larger than luke, not the whole object
+      // we also need a hyphen in between each character that is returned, but NOT at the end
+      i === arr.length - 1
+        ? str += currentChar.name
+        : str += currentChar.name + ' - ';
+      return str;
+    }, '');
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -116,11 +132,12 @@ This data could be sorted by name or price.
 ------------------------------------------------------------------------------------------------ */
 
 const sortBy = (property, arr) => {
-  // Solution code here...
+  // how to get values when the key names are stored inside the variable? bracket notation
+  return arr.sort((a, b) => a[property] === b[property] ? 0 : (a[property] > b[property] ? 1 : -1));
 };
 
 /* ------------------------------------------------------------------------------------------------
-CHALLENGE 5 
+CHALLENGE 5
 
 Write a function that determines if a given URL is secure, beginning with https://
 
@@ -132,11 +149,12 @@ https://secure.com returns true because the URL is secure
 https:/missingslash.org returns false because the URL is malformed
 ------------------------------------------------------------------------------------------------ */
 const isSecure = (url) => {
-  // Solution code here...
+  let regex = /^(https:\/\/)\w+.\w+/;
+  return regex.test(url);
 };
 
 /* ------------------------------------------------------------------------------------------------
-CHALLENGE 6 
+CHALLENGE 6
 
 Write a function named detectTicTacToeWin that accepts a two-dimensional array of strings. Each string is guaranteed to be either "X", "O" or an empty string. Your function should check to see if any row, column, or either diagonal direction has three matching "X" or "O" symbols (non-empty strings), three-in-a-line.
 
@@ -155,7 +173,53 @@ Here is a sample board:
 ------------------------------------------------------------------------------------------------ */
 
 const detectTicTacToeWin = (board) => {
-  // Solution code here...
+  // big yikes!
+  let helpCheck = (set) => {
+
+    // 1. find out if any values in the array are blank
+    // 2. find out if all the values are the same
+    return set.every(cell => cell !== '' && cell === set[0])
+      ? true
+      : false;
+  };
+
+  // // test if working...
+  // let set = [board[0][0], board[1][0], board[2][0]];
+  // // console.log(helpCheck(set));
+
+  // all the ways to win:
+
+  // ROWS ---
+  // top row
+  if (helpCheck(board[0])) return true;
+
+  // middle row
+  if (helpCheck(board[0])) return true;
+
+  // bottom row
+  if (helpCheck(board[0])) return true;
+
+  // COLUMNS ---
+
+  // these and the diags need to be returned as arrays
+  // left col
+  if (helpCheck([board[0][0],board[1][0], board[2][0]])) return true;
+
+  // middle col
+  if (helpCheck([board[0][1],board[1][1], board[2][1]])) return true;
+
+  // right col
+  if (helpCheck([board[0][2],board[1][2], board[2][2]])) return true;
+
+  // DIAGONALS ---
+  // top-left to bottom-right
+  if (helpCheck([board[0][0],board[1][1], board[2][2]])) return true;
+
+  // top-right to bottom-left
+  if (helpCheck([board[0][2],board[1][1], board[2][0]])) return true;
+
+  // if all of the above fail to return true, it will retur false (else statement)
+  return false;
 };
 
 /* ------------------------------------------------------------------------------------------------
