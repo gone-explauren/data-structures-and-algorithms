@@ -1,10 +1,6 @@
 # Data Structures and Algorithms
 
-See [setup instructions](https://codefellows.github.io/setup-guide/code-301/3-code-challenges), in the Code 301 Setup Guide.
-
-## Repository Quick Tour and Usage
-
-### 301 Code Challenges
+## 301 Code Challenges
 
 Under the `javascript` folder, at the top level, is a sub-folder called `code-challenges`
 
@@ -18,6 +14,16 @@ To run your tests
 - run `npm test` to run all of the tests
 - run `npm test ##` to only run tests for challenge ## (i.e. 01)
 
-### 401 Data Structures, Code Challenges
+## 401 Data Structures, Code Challenges
 
-- Please follow the instructions specific to your 401 language, which can be found in the directory below, matching your course.
+Work within the proper folder structure for your language, and as dictated by the challenge instructions.
+
+Create a new README for this challenge, using the README TEMPLATE provided.
+
+Embed an image of your completed whiteboard, matching the example whiteboard layout
+
+In addition to whiteboard drawing, complete the code written on your whiteboard, along with a proper suite of tests
+
+Create a pull request from your branch to the main branch
+
+In your open pull request, comment with the following checklist of tasks
