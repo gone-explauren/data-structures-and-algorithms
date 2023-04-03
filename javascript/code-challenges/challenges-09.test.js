@@ -9,7 +9,7 @@ using the 'reduce' method.
 E.g. [4,2,7,5,9,2] -> 9
 ------------------------------------------------------------------------------------------------ */
 const maxInArray = (arr) => {
-  return arr.reduce((a,b) => (a>b ? a : b));
+  return arr.reduce((a, b) => (a > b ? a : b));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -19,14 +19,14 @@ Write a function named getCourseKeys that takes in the courseInfo object and ret
 
 For example: (['name', 'duration', 'topics', 'finalExam']).
 ------------------------------------------------------------------------------------------------ */
-const courseInfo = { name: 'Code 301', duration: { dayTrack: '4 weeks', eveningTrack: '8 weeks'},
+const courseInfo = {
+  name: 'Code 301', duration: { dayTrack: '4 weeks', eveningTrack: '8 weeks' },
   topics: ['SMACSS', 'APIs', 'NodeJS', 'SQL', 'jQuery', 'functional programming'],
   finalExam: true
 };
 
 const getCourseKeys = (obj) => {
-  const getCourseKeys = (obj) => {
-    return Object.keys(obj);
+  return Object.keys(obj);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -64,7 +64,7 @@ HR has asked you to change the data to make it easier to print so that it looks 
 
 const updateNumbers = (obj) => {
   let newArr = [];
-  Object.keys(obj).forEach(key => newArr.push(`${key}: ${obj [key]}`));
+  Object.keys(obj).forEach(key => newArr.push(`${key}: ${obj[key]}`));
   return newArr;
 };
 
@@ -120,9 +120,7 @@ const characters = [
 ];
 
 const getHouses = (arr) => {
-  let houses = [];
-  arr.characters.house.push(Object.key[2]);
-  return houses;
+  return arr.map(obj => obj.house);
 };
 
 /*------------------------------------------------------------------------------------------------
@@ -144,7 +142,7 @@ const hasChildrenValues = (arr, character) => {
       // Object.keys(person) creates an array we can use more methods on
       Object.keys(person).forEach((key, idx) => {
         // console.log(key);
-        if (key === 'children') kid = Object.values(person) [idx].length;
+        if (key === 'children') kid = Object.values(person)[idx].length;
         // console.log (Object.values(person) [idx]) if they have a kid it will return true and if kid = 0 it will return false
       });
     }
