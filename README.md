@@ -1,29 +1,27 @@
 # Data Structures and Algorithms
 
-## 301 Code Challenges
-
-Under the `javascript` folder, at the top level, is a sub-folder called `code-challenges`
-
-Each day, you'll add one new file to this folder to do your work for the day's assigned code challenge
-
-If you have not already done so, run `npm install` from within this folder to setup your system to be able to run tests using `Jest`
-
-To run your tests
-
-- Change to the `javascript` folder
-- run `npm test` to run all of the tests
-- run `npm test ##` to only run tests for challenge ## (i.e. 01)
-
 ## 401 Data Structures, Code Challenges
 
-Work within the proper folder structure for your language, and as dictated by the challenge instructions.
+# Array-Reverse
+Reverse an array without using native .reverse() method.
 
-Create a new README for this challenge, using the README TEMPLATE provided.
+## Whiteboard Process
+![Challenge-02 Whiteboard](data-structures-and-algorithms/whiteboard/whiteboard-cc1.png)
 
-Embed an image of your completed whiteboard, matching the example whiteboard layout
+## Approach & Efficiency
+whiteboarding a problem is very new to me, so this challenge for this assignment was to reference the whiteboard template and try to format mine in the same way. Not knowing much about Big O right now or how to calculate it yet, I left that part (and some others that didn't seem applicable to me at the time) out of my whiteboarding for this assignment.
 
-In addition to whiteboard drawing, complete the code written on your whiteboard, along with a proper suite of tests
+## Solution
+This code did not need to be run or tested for the assignment today, it was a whiteboard challenge only.
 
-Create a pull request from your branch to the main branch
+# Challenge Title
+<!-- Description of the challenge -->
 
-In your open pull request, comment with the following checklist of tasks
+## Whiteboard Process
+<!-- Embedded whiteboard image -->
+
+## Approach & Efficiency
+<!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
+
+## Solution
+<!-- Show how to run your code, and examples of it in action -->
