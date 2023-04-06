@@ -25,3 +25,15 @@ I could not find a solution to this without using a native method so I just used
 
 ## Solution
 This code did not need to be run or tested for the assignment today, it was a whiteboard challenge only.
+
+# Binary-Search
+Add a value to the middle on an array without using native JavaScript methods
+
+## Whiteboard Process
+![Challenge-03 Whiteboard](data-structures-and-algorithms/whiteboard/binary-search.png)
+
+## Approach & Efficiency
+Read about binary search in the documentation provided by the code challenge, and did my best to implement when I leared.
+
+## Solution
+This code did not need to be run or tested for the assignment today, it was a whiteboard challenge only.
