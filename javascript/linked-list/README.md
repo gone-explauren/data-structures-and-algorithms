@@ -2,7 +2,7 @@
 
 ## Notes and Whiteboarding:
 
-
+![linked-list-notes-1](https://user-images.githubusercontent.com/123340286/230689692-750f6976-0c31-4607-998e-cca03fb2cb5d.png)
 
 ### References:
 
