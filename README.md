@@ -37,3 +37,16 @@ Read about binary search in the documentation provided by the code challenge, an
 
 ## Solution
 This code did not need to be run or tested for the assignment today, it was a whiteboard challenge only.
+
+# Technical Interview
+I worked with Nate to perform a mock interview. I completed a challenge that took in a given matrix and then found the sum of each array in the matrix, returning the in a new array. Nate took on a challenge to find the nth number in the Fibonacci sequence and return the value of it.
+
+## Whiteboard Process
+![Laurel's whiteboard](./whiteboard/matrix-arrays.png)
+![Nate's whiteboard](./whiteboard/fibonacci-sequence-Nates-solution.png)
+
+## Approach & Efficiency
+Nate and I helped each other out with the challenges, though I think he was a better help to me than I was to him. It really helped for me to be able to talk through my thought process with someone.
+
+## Solution
+This code did not need to be run or tested for the assignment today, it was a whiteboard challenge only. Nate and I think that the solution for the fibonacci sequence problem will likely not work, but we were unable to figure out a working solution.
