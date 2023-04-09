@@ -1,44 +1,76 @@
 'use strict';
 
+class Node {
+  constructor(value) {
+    this.value = value;
+    this.next = null;
+  }
+}
+
 class LinkedList {
   constructor() {
     this.head = null;
   }
+
   traverse() {
     let current = this.head;
-    while(current) {
+    while (current) {
       // console.log(current.value);
       current = current.next;
     }
   }
+
   insert(value) {
     // create the node and add the value
-    let newNode = new Node(value);
-    // make next of newNode the head
-    newNode.next = this.head;
-    // move head to newNode
-    this.head = newNode;
+    let node = new Node(value);
+
+    // if there is a node already, it is head...
+    if (this.head) {
+
+      // make next of new Node the head
+      node.next = this.head;
+
+      // move head to new Node
+      this.head = node;
+
+    } else {
+      this.head = node;
+    }
   }
+
   includes(value) {
     // start at head
-    var node = this.head;
-    while (node) {
+    let current = this.head;
+
+    // current !== null
+    while (current) {
       if (this.current.value === value) {
         return true;
       }
       // move to next node
-      node = node.next;
+      current = current.next;
     }
+
     return false;
   }
+
   toString() {
-    var node = this.head;
-    let values = '';
-    while(node) {
-      this.current.value.push(values);
-      node = node.next;
+    let current = this.head;
+    let valueStr = `{ ${current.value} }`;
+
+    while (current) {
+
+      current = current.next;
+
+      if (current) {
+        valueStr = `${valueStr} -> { ${current.value} }`;
+
+      } else {
+
+        valueStr = `${valueStr} -> { ${current} }`;
+      }
     }
-    return values;
+    return valueStr;
   }
 }
 
