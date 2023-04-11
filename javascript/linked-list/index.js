@@ -110,6 +110,7 @@ class LinkedList {
       current = current.next;
     }
 
+    // this is how we preserve the rest of the linked list rather than kicking out everything that comes after the new node
     let temp = current.next;
     current.next = node;
     node.next = temp;
@@ -128,6 +129,36 @@ class LinkedList {
     let temp = current.next.next;
     current.next.next = node;
     node.next = temp;
+  }
+
+  kthFromEnd(k) {
+    let current = this.head;
+    let prev = null;
+    let refNext;
+
+    // reverse linked list
+    while (current) {
+      refNext = current.next; // store ref to next
+      current.next = prev; // reverse
+      prev = current; // reassign prev
+      current = refNext; // reassign current
+    }
+
+    this.head = prev; // head is now the last node in the list
+    let newCurr = this.head;
+    var count = 0;
+
+    while (newCurr !== null) {
+      // if we found the index we're looking for (k), return the value of the node
+      if (count === k) return newCurr.value;
+
+      // the code below will only run if the above was not true
+      count++;
+      newCurr = newCurr.next;
+    }
+
+    // if the loop above did not find index k, return 0
+    if (newCurr === null) return 666;
   }
 }
 
