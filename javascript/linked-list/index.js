@@ -110,6 +110,7 @@ class LinkedList {
       current = current.next;
     }
 
+    // this is how we preserve the rest of the linked list rather than kicking out everything that comes after the new node
     let temp = current.next;
     current.next = node;
     node.next = temp;
@@ -129,6 +130,34 @@ class LinkedList {
     current.next.next = node;
     node.next = temp;
   }
+
+  kthFromEnd(k) {
+    let current = this.head;
+    var totalNodes = 0;
+    var count = 0;
+
+    if (k < 0) return 666;
+
+    // count the nodes in the linked list
+    while (current !== null) {
+      current = current.next;
+      totalNodes++;
+    }
+
+    // search through the linked list again, this time only up to the full length of the list minus k
+    if (totalNodes >= k) {
+      current = this.head;
+      for (count = 0; count < totalNodes - k; count++) {
+        current = current.next;
+      }
+      return current.value;
+
+    } else {
+      // if k is more than the length of the linked list
+      return 666;
+    }
+  }
+
 }
 
 // // global list -- unused.

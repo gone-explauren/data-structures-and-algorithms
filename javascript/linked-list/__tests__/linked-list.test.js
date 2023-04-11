@@ -171,4 +171,79 @@ describe('Testing the Linked List data structure', () => {
     // console.log(list);
     expect(list.head.next.next.value).toEqual('Jacques');
   });
+
+  test('Sends an error when k is greater than the length of the linked list', () => {
+    let list = new LinkedList();
+    list.insert(
+      'River'
+    );
+    list.insert(
+      'Shasta'
+    );
+    list.insert(
+      'Poppy'
+    );
+
+    expect(list.kthFromEnd(4)).toEqual(666);
+  });
+
+  test('Retrieves the value of the node on index k when k is the same as the length of the linked list', () => {
+    let list = new LinkedList();
+    list.insert(
+      'River'
+    );
+    list.insert(
+      'Shasta'
+    );
+    list.insert(
+      'Poppy'
+    );
+
+    expect(list.kthFromEnd(3)).toEqual('Poppy');
+  });
+
+  test('Sends an error when k is not a positive integer', () => {
+    let list = new LinkedList();
+    list.insert(
+      'River'
+    );
+    list.insert(
+      'Shasta'
+    );
+    list.insert(
+      'Poppy'
+    );
+
+    expect(list.kthFromEnd(-2)).toEqual(666);
+  });
+
+  test('Retrieves the value of the node on index k when the length of the linked list is 1 and k is equal to 1', () => {
+    let list = new LinkedList();
+    list.insert(
+      'River'
+    );
+
+    expect(list.kthFromEnd(1)).toEqual('River');
+  });
+
+  test('Retrieves the value of the node on index k when index k is in the middle of the linked list', () => {
+    let list = new LinkedList();
+    list.insert(
+      'River'
+    );
+    list.insert(
+      'Shasta'
+    );
+    list.insert(
+      'Poppy'
+    );
+    list.insert(
+      'McKenzie'
+    );
+    list.insert(
+      'Willam'
+    );
+
+    expect(list.kthFromEnd(3)).toEqual('Poppy');
+  });
 });
