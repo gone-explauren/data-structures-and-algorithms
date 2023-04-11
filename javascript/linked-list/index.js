@@ -133,33 +133,31 @@ class LinkedList {
 
   kthFromEnd(k) {
     let current = this.head;
-    let prev = null;
-    let refNext;
-
-    // reverse linked list
-    while (current) {
-      refNext = current.next; // store ref to next
-      current.next = prev; // reverse
-      prev = current; // reassign prev
-      current = refNext; // reassign current
-    }
-
-    this.head = prev; // head is now the last node in the list
-    let newCurr = this.head;
+    var totalNodes = 0;
     var count = 0;
 
-    while (newCurr !== null) {
-      // if we found the index we're looking for (k), return the value of the node
-      if (count === k) return newCurr.value;
+    if (k < 0) return 666;
 
-      // the code below will only run if the above was not true
-      count++;
-      newCurr = newCurr.next;
+    // count the nodes in the linked list
+    while (current !== null) {
+      current = current.next;
+      totalNodes++;
     }
 
-    // if the loop above did not find index k, return 0
-    if (newCurr === null) return 666;
+    // search through the linked list again, this time only up to the full length of the list minus k
+    if (totalNodes >= k) {
+      current = this.head;
+      for (count = 0; count < totalNodes - k; count++) {
+        current = current.next;
+      }
+      return current.value;
+
+    } else {
+      // if k is more than the length of the linked list
+      return 666;
+    }
   }
+
 }
 
 // // global list -- unused.

@@ -9,7 +9,7 @@ describe('Testing the Linked List data structure', () => {
     expect(list.head).toEqual(null);
   });
 
-  xtest('Can properly insert into the linked list', () => {
+  test('Can properly insert into the linked list', () => {
     let list = new LinkedList();
     list.insert(
       'Poppy'
@@ -17,7 +17,7 @@ describe('Testing the Linked List data structure', () => {
     expect(list.head.value).toEqual('Poppy');
   });
 
-  xtest('The head property will properly point to the first node in the linked list', () => {
+  test('The head property will properly point to the first node in the linked list', () => {
     let list = new LinkedList();
     list.insert(
       'Willam'
@@ -29,7 +29,7 @@ describe('Testing the Linked List data structure', () => {
     expect(list.head.value).toEqual('McKenzie');
   });
 
-  xtest('Can properly insert multiple nodes into the linked list', () => {
+  test('Can properly insert multiple nodes into the linked list', () => {
     const list = new LinkedList();
     list.insert(
       'Benvolio'
@@ -41,7 +41,7 @@ describe('Testing the Linked List data structure', () => {
     expect(list.head.next).toBeTruthy();
   });
 
-  xtest('Will return true when finding a value within the linked list that exists', () => {
+  test('Will return true when finding a value within the linked list that exists', () => {
     const list = new LinkedList();
     list.insert(8);
     list.insert(0);
@@ -51,7 +51,7 @@ describe('Testing the Linked List data structure', () => {
     expect(list.includes(80)).toEqual(false);
   });
 
-  xtest('Will return false when searching for a value in the linked list that does not exist', () => {
+  test('Will return false when searching for a value in the linked list that does not exist', () => {
     let list = new LinkedList();
     list.insert(
       'River'
@@ -59,7 +59,7 @@ describe('Testing the Linked List data structure', () => {
     expect(list.includes('Shasta')).toEqual(false);
   });
 
-  xtest('Can properly return a collection of all the values that exist in the linked list', () => {
+  test('Can properly return a collection of all the values that exist in the linked list', () => {
     let list = new LinkedList();
     list.insert(
       'Poppy'
@@ -79,7 +79,7 @@ describe('Testing the Linked List data structure', () => {
     expect(list.toString()).toEqual('{ almond } -> { mirror } -> { bell } -> { Poppy } -> { null }');
   });
 
-  xtest('Can successfully add (one or multiple) node(s) to the end of the linked list', () => {
+  test('Can successfully add (one or multiple) node(s) to the end of the linked list', () => {
     let list = new LinkedList();
     // sub problems:
 
@@ -100,7 +100,7 @@ describe('Testing the Linked List data structure', () => {
     expect(list.head.next.next.value).toEqual('seed');
   });
 
-  xtest('Can successfully insert a node before a node located in the middle of a linked list', () => {
+  test('Can successfully insert a node before a node located in the middle of a linked list', () => {
     let list = new LinkedList();
     list.insert(
       'Poppy'
@@ -123,7 +123,7 @@ describe('Testing the Linked List data structure', () => {
     expect(list.head.next.next.value).toEqual('River');
   });
 
-  xtest('Can successfully insert a node before the first node the linked list', () => {
+  test('Can successfully insert a node before the first node the linked list', () => {
     let list = new LinkedList();
     list.insert(
       'Astro'
@@ -137,7 +137,7 @@ describe('Testing the Linked List data structure', () => {
     expect(list.head.value).toEqual('Jacques');
   });
 
-  xtest('Can successfully insert a node after a node located in the middle of a linked list', () => {
+  test('Can successfully insert a node after a node located in the middle of a linked list', () => {
     let list = new LinkedList();
     list.insert(
       'Poppy'
@@ -158,7 +158,7 @@ describe('Testing the Linked List data structure', () => {
     expect(list.head.next.next.value).toEqual('River');
   });
 
-  xtest('Can successfully insert a node after the last node the linked list', () => {
+  test('Can successfully insert a node after the last node the linked list', () => {
     let list = new LinkedList();
     list.insert(
       'Astro'
@@ -172,7 +172,7 @@ describe('Testing the Linked List data structure', () => {
     expect(list.head.next.next.value).toEqual('Jacques');
   });
 
-  xtest('Sends an error when k is greater than the length of the linked list', () => {
+  test('Sends an error when k is greater than the length of the linked list', () => {
     let list = new LinkedList();
     list.insert(
       'River'
@@ -202,7 +202,7 @@ describe('Testing the Linked List data structure', () => {
     expect(list.kthFromEnd(3)).toEqual('Poppy');
   });
 
-  xtest('Sends an error when k is not a positive integer', () => {
+  test('Sends an error when k is not a positive integer', () => {
     let list = new LinkedList();
     list.insert(
       'River'
@@ -224,5 +224,26 @@ describe('Testing the Linked List data structure', () => {
     );
 
     expect(list.kthFromEnd(1)).toEqual('River');
+  });
+
+  test('Retrieves the value of the node on index k when index k is in the middle of the linked list', () => {
+    let list = new LinkedList();
+    list.insert(
+      'River'
+    );
+    list.insert(
+      'Shasta'
+    );
+    list.insert(
+      'Poppy'
+    );
+    list.insert(
+      'McKenzie'
+    );
+    list.insert(
+      'Willam'
+    );
+
+    expect(list.kthFromEnd(3)).toEqual('Poppy');
   });
 });
