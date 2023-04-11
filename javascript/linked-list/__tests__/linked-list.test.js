@@ -10,66 +10,165 @@ describe('Testing the Linked List data structure', () => {
   });
 
   test('Can properly insert into the linked list', () => {
-    let node = LinkedList.insert({
-      value: 'Poppy',
-    });
-    expect(node.value).toEqual('Poppy');
+    let list = new LinkedList();
+    list.insert(
+      'Poppy'
+    );
+    expect(list.head.value).toEqual('Poppy');
   });
 
   test('The head property will properly point to the first node in the linked list', () => {
     let list = new LinkedList();
-    list.insert({
-      value: 'Willam',
-    });
-    list.insert({
-      value: 'McKenzie',
-    });
+    list.insert(
+      'Willam'
+    );
+    list.insert(
+      'McKenzie'
+    );
     // console.log(list.head);
     expect(list.head.value).toEqual('McKenzie');
   });
 
   test('Can properly insert multiple nodes into the linked list', () => {
     const list = new LinkedList();
-    list.insertVal('value');
-    list.insertVal('value2');
+    list.insert(
+      'Benvolio'
+    );
+    list.insert(
+      'Astro'
+    );
     // console.log(list);
     expect(list.head.next).toBeTruthy();
   });
 
   test('Will return true when finding a value within the linked list that exists', () => {
     const list = new LinkedList();
-    list.insertVal(8);
-    list.insertVal(0);
+    list.insert(8);
+    list.insert(0);
     // console.log(list);
-    expect(list.includeVal(8)).toEqual(true);
-    expect(list.includeVal(0)).toEqual(true);
-    expect(list.includeVal(80)).toEqual(false);
+    expect(list.includes(8)).toEqual(true);
+    expect(list.includes(0)).toEqual(true);
+    expect(list.includes(80)).toEqual(false);
   });
 
   test('Will return false when searching for a value in the linked list that does not exist', () => {
-    let node = LinkedList.includes({
-      value: 'River',
-    });
-    expect(node.includes(Shasta)).toEqual(false);
-  });
-
-  test('Can properly return a collection of all the values that exist in the linked list',() => {
     let list = new LinkedList();
-    list.insert({
-      value: 'Poppy',
-    });
-    list.insert({
-      value: 'bell',
-    });
-    list.insert({
-      value: 'mirror',
-    });
-    list.insert({
-      value: 'almond',
-    });
-    // console.log(list);
-    console.log(list.toString());
-    expect(list.toString()).toEqual('{ Poppy } -> { bell } -> { mirror } -> { almond } -> { null }');
+    list.insert(
+      'River'
+    );
+    expect(list.includes('Shasta')).toEqual(false);
   });
 
+  test('Can properly return a collection of all the values that exist in the linked list', () => {
+    let list = new LinkedList();
+    list.insert(
+      'Poppy'
+    );
+    list.insert(
+      'bell'
+    );
+    list.insert(
+      'mirror'
+    );
+    list.insert(
+      'almond'
+    );
+    // console.log(list);
+    // console.log(list.toString());
+    // because of the way I wrote my insert() method, the last value added is the first value on the list
+    expect(list.toString()).toEqual('{ almond } -> { mirror } -> { bell } -> { Poppy } -> { null }');
+  });
+
+  test('Can successfully add (one or multiple) node(s) to the end of the linked list', () => {
+    let list = new LinkedList();
+    // sub problems:
+
+    // this tests that we can add a node if there is none (head)
+    list.append(
+      'Rogue'
+    );
+    expect(list.head.value).toEqual('Rogue');
+    // this tests that we can add a node to the end if there is a head node.
+    list.append(
+      'millet'
+    );
+    // this tests that we can add a node to the end if there are multiple nodes in the list already (function must be recursive, not stop after one if statement;
+    expect(list.head.next.value).toEqual('millet');
+    list.append(
+      'seed'
+    );
+    expect(list.head.next.next.value).toEqual('seed');
+  });
+
+  test('Can successfully insert a node before a node located in the middle of a linked list', () => {
+    let list = new LinkedList();
+    list.insert(
+      'Poppy'
+    );
+    list.insert(
+      'Shasta'
+    );
+    list.insert(
+      'Willam'
+    );
+    list.insert(
+      'McKenzie'
+    );
+    list.insertBefore('River', 'Shasta');
+
+    // console.log(list);
+    // because of the way I wrote my insert() method, the last value added is the first value on the list
+    // McKenzie is at the front of the list, Poppy is at the back
+    // River should be between Shasta and Willam
+    expect(list.head.next.next.value).toEqual('River');
+  });
+
+  test('Can successfully insert a node before the first node the linked list', () => {
+    let list = new LinkedList();
+    list.insert(
+      'Astro'
+    );
+    list.insert(
+      'Benvolio'
+    );
+    list.insertBefore('Jacques', 'Benvolio');
+
+    // console.log(list);
+    expect(list.head.value).toEqual('Jacques');
+  });
+
+  test('Can successfully insert a node after a node located in the middle of a linked list', () => {
+    let list = new LinkedList();
+    list.insert(
+      'Poppy'
+    );
+    list.insert(
+      'Shasta'
+    );
+    list.insert(
+      'Willam'
+    );
+    list.insert(
+      'McKenzie'
+    );
+    list.insertAfter('River', 'Willam');
+
+    // console.log(list);
+    // River should be between Shasta and Willam
+    expect(list.head.next.next.value).toEqual('River');
+  });
+
+  test('Can successfully insert a node after the last node the linked list', () => {
+    let list = new LinkedList();
+    list.insert(
+      'Astro'
+    );
+    list.insert(
+      'Benvolio'
+    );
+    list.insertAfter('Jacques', 'Astro');
+
+    // console.log(list);
+    expect(list.head.next.next.value).toEqual('Jacques');
+  });
 });
