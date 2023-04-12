@@ -246,4 +246,95 @@ describe('Testing the Linked List data structure', () => {
 
     expect(list.kthFromEnd(3)).toEqual('Poppy');
   });
+
+  test('Returns a new linked list that is a "zipped" version of two lists passed in as arguments', () => {
+    let zippedList = new LinkedList();
+    let oregonFriends = new LinkedList();
+    let list01 = oregonFriends;
+    list01.insert(
+      'Brandon'
+    );
+    list01.insert(
+      'Justin'
+    );
+    list01.insert(
+      'Kayl'
+    );
+
+    let coloradoBuds = new LinkedList();
+    let list02 = coloradoBuds;
+    list02.insert(
+      'Teresa'
+    );
+    list01.insert(
+      'Sara'
+    );
+    list01.insert(
+      'Casey'
+    );
+    expect(zippedList.zipList(list01, list02)).toEqual('{ Brandon } -> { Teresa } -> { Justin } -> { Sara } -> { Kayl } -> { Casey } -> null');
+  });
+
+  test('Returns a new linked list that is a "zipped" version of two lists, when list01 is longer than list02', () => {
+    let zippedList = new LinkedList();
+    let oregonFriends = new LinkedList();
+    let list01 = oregonFriends;
+    list01.insert(
+      'Brandon'
+    );
+    list01.insert(
+      'Justin'
+    );
+    list01.insert(
+      'Kayl'
+    );
+    list01.insert(
+      'Missy'
+    );
+
+    let coloradoBuds = new LinkedList();
+    let list02 = coloradoBuds;
+    list02.insert(
+      'Teresa'
+    );
+    list01.insert(
+      'Sara'
+    );
+    list01.insert(
+      'Casey'
+    );
+    expect(zippedList.zipList(list01, list02)).toEqual('{ Brandon } -> { Teresa } -> { Justin } -> { Sara } -> { Kayl } -> { Casey } -> { Missy } -> null');
+  });
+
+  test('Returns a new linked list that is a "zipped" version of two lists, when list01 is longer than list02', () => {
+    let zippedList = new LinkedList();
+    let oregonFriends = new LinkedList();
+    let list01 = oregonFriends;
+    list01.insert(
+      'Brandon'
+    );
+    list01.insert(
+      'Justin'
+    );
+    list01.insert(
+      'Kayl'
+    );
+
+    let washingtonPals = new LinkedList();
+    let list02 = washingtonPals;
+    list02.insert(
+      'Uli'
+    );
+    list01.insert(
+      'Sherry'
+    );
+    list01.insert(
+      'Azhar'
+    );
+    list01.insert(
+      'Salem'
+    );
+    expect(zippedList.zipList(list01, list02)).toEqual('{ Brandon } -> { Uli } -> { Justin } -> { Sherry } -> { Kayl } -> { Azhar } -> { Salem } -> null');
+  });
+
 });

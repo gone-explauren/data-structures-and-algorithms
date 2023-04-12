@@ -156,8 +156,20 @@ class LinkedList {
       // if k is more than the length of the linked list
       return 666;
     }
+    // could have also set current = this.tail and traversed backwards using current.previous
   }
 
+  zipLists(list01, list02) {
+    let current01 = list01.head;
+    let current02 = list02.head;
+
+    while (current01 && current02) {
+      zippedList.insert(current01);
+      zippedList.insert(current02);
+      current01 = current01.next;
+      current02 = current02.next;
+    }
+    return zippedList;
 }
 
 // // global list -- unused.
