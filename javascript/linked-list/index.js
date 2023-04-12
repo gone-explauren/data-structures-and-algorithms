@@ -160,15 +160,28 @@ class LinkedList {
   }
 
   zipLists(list01, list02) {
+    const zippedList = new LinkedList();
     let current01 = list01.head;
     let current02 = list02.head;
 
-    while (current01 && current02) {
-      zippedList.insert(current01);
-      zippedList.insert(current02);
+    // zipper the lists
+    while (current01 !== null && current02 !== null) {
+      zippedList.append(current01.value);
+      zippedList.append(current02.value);
       current01 = current01.next;
       current02 = current02.next;
     }
+
+    // if either list has remaining nodes, append them to zippedList
+    while (current01 !== null) {
+      zippedList.append(current01.value);
+      current01 = current01.next;
+    }
+    while (current02 !== null) {
+      zippedList.append(current02.value);
+      current02 = current02.next;
+    }
+
     return zippedList;
 }
 
