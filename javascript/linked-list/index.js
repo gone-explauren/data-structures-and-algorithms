@@ -159,10 +159,10 @@ class LinkedList {
     // could have also set current = this.tail and traversed backwards using current.previous
   }
 
-  zipLists(list01, list02) {
+  zipLists(listToMerge) {
     const zippedList = new LinkedList();
-    let current01 = list01.head;
-    let current02 = list02.head;
+    let current01 = this.head;
+    let current02 = listToMerge.head;
 
     // zipper the lists
     while (current01 !== null && current02 !== null) {
@@ -183,6 +183,7 @@ class LinkedList {
     }
 
     return zippedList;
+  }
 }
 
 // // global list -- unused.

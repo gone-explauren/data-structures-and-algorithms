@@ -247,94 +247,122 @@ describe('Testing the Linked List data structure', () => {
     expect(list.kthFromEnd(3)).toEqual('Poppy');
   });
 
-  test('Returns a new linked list that is a "zipped" version of two lists passed in as arguments', () => {
-    let zippedList = new LinkedList();
+  test('Can successfully zip two lists of the same length', () => {
     let oregonFriends = new LinkedList();
-    let list01 = oregonFriends;
-    list01.insert(
+    let listOG = oregonFriends;
+    listOG.insert(
       'Brandon'
     );
-    list01.insert(
+    listOG.insert(
       'Justin'
     );
-    list01.insert(
+    listOG.insert(
       'Kayl'
     );
 
     let coloradoBuds = new LinkedList();
-    let list02 = coloradoBuds;
-    list02.insert(
+    let listToMerge = coloradoBuds;
+    listToMerge.insert(
       'Teresa'
     );
-    list01.insert(
+    listToMerge.insert(
       'Sara'
     );
-    list01.insert(
+    listToMerge.insert(
       'Casey'
     );
-    expect(zippedList.zipList(list01, list02)).toEqual('{ Brandon } -> { Teresa } -> { Justin } -> { Sara } -> { Kayl } -> { Casey } -> null');
+    // don't forget that my insert() method adds new nodes to the front of the list, so the list will be reversed from what is intuitive
+    const zippedList = listOG.zipLists(listToMerge);
+    expect(zippedList.head.value).toBe('Kayl');
+    expect(zippedList.head.next.value).toBe('Casey');
+    expect(zippedList.head.next.next.value).toBe('Justin');
+    expect(zippedList.head.next.next.next.value).toBe('Sara');
+    expect(zippedList.head.next.next.next.next.value).toBe('Brandon');
+    expect(zippedList.head.next.next.next.next.next.value).toBe('Teresa');
+    expect(zippedList.head.next.next.next.next.next.next).toBeNull();
   });
 
-  test('Returns a new linked list that is a "zipped" version of two lists, when list01 is longer than list02', () => {
-    let zippedList = new LinkedList();
+  test('Can successfully zip two lists when listOG is longer than listToMerge', () => {
     let oregonFriends = new LinkedList();
-    let list01 = oregonFriends;
-    list01.insert(
+    let listOG = oregonFriends;
+    listOG.insert(
       'Brandon'
     );
-    list01.insert(
+    listOG.insert(
       'Justin'
     );
-    list01.insert(
+    listOG.insert(
       'Kayl'
     );
-    list01.insert(
+    listOG.insert(
       'Missy'
     );
 
     let coloradoBuds = new LinkedList();
-    let list02 = coloradoBuds;
-    list02.insert(
+    let listToMerge = coloradoBuds;
+    listToMerge.insert(
       'Teresa'
     );
-    list01.insert(
+    listToMerge.insert(
       'Sara'
     );
-    list01.insert(
+    listToMerge.insert(
       'Casey'
     );
-    expect(zippedList.zipList(list01, list02)).toEqual('{ Brandon } -> { Teresa } -> { Justin } -> { Sara } -> { Kayl } -> { Casey } -> { Missy } -> null');
+    const zippedList = listOG.zipLists(listToMerge);
+    expect(zippedList.head.value).toBe('Missy');
+    expect(zippedList.head.next.value).toBe('Casey');
+    expect(zippedList.head.next.next.value).toBe('Kayl');
+    expect(zippedList.head.next.next.next.value).toBe('Sara');
+    expect(zippedList.head.next.next.next.next.value).toBe('Justin');
+    expect(zippedList.head.next.next.next.next.next.value).toBe('Teresa');
+    expect(zippedList.head.next.next.next.next.next.next.value).toBe('Brandon');
+    expect(zippedList.head.next.next.next.next.next.next.next).toBeNull();
   });
 
-  test('Returns a new linked list that is a "zipped" version of two lists, when list01 is longer than list02', () => {
-    let zippedList = new LinkedList();
+  test('Can successfully zip two lists when listOG is shorter than listToMerge', () => {
     let oregonFriends = new LinkedList();
-    let list01 = oregonFriends;
-    list01.insert(
+    let listOG = oregonFriends;
+    listOG.insert(
       'Brandon'
     );
-    list01.insert(
+    listOG.insert(
       'Justin'
     );
-    list01.insert(
+    listOG.insert(
       'Kayl'
     );
 
     let washingtonPals = new LinkedList();
-    let list02 = washingtonPals;
-    list02.insert(
+    let listToMerge = washingtonPals;
+    listToMerge.insert(
       'Uli'
     );
-    list01.insert(
+    listToMerge.insert(
       'Sherry'
     );
-    list01.insert(
+    listToMerge.insert(
       'Azhar'
     );
-    list01.insert(
+    listToMerge.insert(
       'Salem'
     );
-    expect(zippedList.zipList(list01, list02)).toEqual('{ Brandon } -> { Uli } -> { Justin } -> { Sherry } -> { Kayl } -> { Azhar } -> { Salem } -> null');
+    const zippedList = listOG.zipLists(listToMerge);
+    expect(zippedList.head.value).toBe('Kayl');
+    expect(zippedList.head.next.value).toBe('Salem');
+    expect(zippedList.head.next.next.value).toBe('Justin');
+    expect(zippedList.head.next.next.next.value).toBe('Azhar');
+    expect(zippedList.head.next.next.next.next.value).toBe('Brandon');
+    expect(zippedList.head.next.next.next.next.next.value).toBe('Sherry');
+    expect(zippedList.head.next.next.next.next.next.next.value).toBe('Uli');
+    expect(zippedList.head.next.next.next.next.next.next.next).toBeNull();
+  });
+
+  test('Can successfully zip two empty lists', () => {
+    const listOG = new LinkedList();
+    const listToMerge = new LinkedList();
+    const zippedList = listOG.zipLists(listToMerge);
+    expect(zippedList.head).toBeNull();
   });
 
 });
