@@ -156,8 +156,34 @@ class LinkedList {
       // if k is more than the length of the linked list
       return 666;
     }
+    // could have also set current = this.tail and traversed backwards using current.previous
   }
 
+  zipLists(listToMerge) {
+    const zippedList = new LinkedList();
+    let current01 = this.head;
+    let current02 = listToMerge.head;
+
+    // zipper the lists
+    while (current01 !== null && current02 !== null) {
+      zippedList.append(current01.value);
+      zippedList.append(current02.value);
+      current01 = current01.next;
+      current02 = current02.next;
+    }
+
+    // if either list has remaining nodes, append them to zippedList
+    while (current01 !== null) {
+      zippedList.append(current01.value);
+      current01 = current01.next;
+    }
+    while (current02 !== null) {
+      zippedList.append(current02.value);
+      current02 = current02.next;
+    }
+
+    return zippedList;
+  }
 }
 
 // // global list -- unused.
