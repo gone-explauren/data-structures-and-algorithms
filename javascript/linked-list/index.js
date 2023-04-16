@@ -89,6 +89,21 @@ class LinkedList {
     current.next = node;
   }
 
+  appendFront (val) {
+    let node = new ListNode(val);
+    if(this.size===0){
+      this.head = node;
+      this.end = node;
+      this.size = 1;
+    }
+    else{
+      node.next = this.head;
+      this.head.prev = node;
+      this.head = node;
+      this.size = this.size + 1;
+    }
+  }
+
   insertBefore(value, valueNext) {
     // keep in mind that the insert() method I wrote earlier always inserts the new value to the FRONT of the list
     // last value added is the head of the list
@@ -186,6 +201,74 @@ class LinkedList {
   }
 }
 
+class ListNode {
+  constructor(data) {
+    this.data = data;
+    this.next = null;
+    this.prev = null;
+  }
+}
+
+class Stack {
+  constructor (){
+    this.items = new LinkedList();
+  }
+
+  push (val){
+    this.items.appendFront(val);
+  }
+
+  pop (){
+    if(this.items.head){
+      let val = this.items.head.data;
+      this.items.head = this.items.head.next;
+      if(this.items.head){this.items.head.prev = null;}
+      this.items.size--;
+      return val;
+    }else{return 'Exception: Empty Stack';}
+  }
+
+  peek (){
+    if(this.items.head){
+      return this.items.head.data;
+    }else{return 'Exception: Empty Stack';}
+  }
+
+  isEmpty (){
+    return this.items.size ? false : true;
+  }
+}
+
+class Queue {
+  constructor (){
+    this.items = new LinkedList();
+  }
+
+  enqueue (val){
+    return this.items.append(val);
+  }
+
+  dequeue (){
+    if(this.items.head){
+      let val = this.items.head.data;
+      this.items.head = this.items.head.next;
+      if(this.items.head){this.items.head.prev = null;}
+      this.items.size--;
+      return val;
+    }else{return 'Exception: Empty Queue';}
+  }
+
+  peek (){
+    if(this.items.head){
+      return this.items.head.data;
+    }else{return 'Exception: Empty Queue';}
+  }
+
+  isEmpty (){
+    return this.items.size ? false : true;
+  }
+}
+
 // // global list -- unused.
 // // I ended up building new lists for each tests :)
 
@@ -199,4 +282,8 @@ class LinkedList {
 
 // linkedList.traverse();
 
-module.exports = LinkedList;
+module.exports = {
+  LinkedList,
+  Stack,
+  Queue
+};
