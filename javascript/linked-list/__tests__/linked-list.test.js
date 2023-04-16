@@ -1,7 +1,7 @@
 'use strict';
 
 // Require our linked list implementation
-const LinkedList = require('../index');
+const { LinkedList, Stack, Queue } = require('../index');
 
 describe('Testing the Linked List data structure', () => {
   test('Can successfully instantiate an empty linked list', () => {
@@ -363,6 +363,70 @@ describe('Testing the Linked List data structure', () => {
     const listToMerge = new LinkedList();
     const zippedList = listOG.zipLists(listToMerge);
     expect(zippedList.head).toBeNull();
+  });
+
+});
+
+describe('Testing the Stacks data structure', () => {
+  test('Should be able to push and peek the top of a stack if a new stack can be created', () => {
+    let stack = new Stack();
+    stack.push('Bobbie');
+
+    expect(stack.peek()).toEqual('Bobbie');
+  });
+
+  test('Testing pop(). Should return true if stack has nodes, and false if the top of a stack is empty', () => {
+    let stack = new Stack();
+    stack.push('Jack');
+    expect(stack.isEmpty()).toEqual(false);
+    stack.pop();
+    expect(stack.isEmpty()).toEqual(true);
+  });
+
+  test('Should be able to pop off the top of a stack that has multiple nodes', () => {
+    let stack = new Stack();
+    stack.push('Annie');
+    stack.push('Shelby');
+    stack.push('Sadie');
+    expect(stack.peek()).toEqual('Sadie');
+    stack.pop();
+    expect(stack.peek()).toEqual('Shelby');
+    stack.pop();
+    expect(stack.peek()).toEqual('Annie');
+    stack.pop();
+    expect(stack.peek()).toEqual('Exception: Empty Stack');
+  });
+
+});
+
+describe('Testing the Queue data structure', () => {
+  test('Should be able to enqueue to the end of a newly created Queue', () => {
+    let queue = new Queue();
+    queue.enqueue('Karma');
+
+    expect(queue.peek()).toEqual(1);
+  });
+
+  test('Testing dequeue(). Should return true if queue has nodes, and false if the front of a queue is empty', () => {
+    let queue = new Queue('Queenie');
+    queue.enqueue();
+    expect(queue.isEmpty()).toEqual(false);
+    queue.dequeue();
+    expect(queue.isEmpty()).toEqual(true);
+  });
+
+  test('Should be able to dequeue off the end of a queue that has multiple nodes', () => {
+    let queue = new Queue();
+    queue.enqueue('Kitty');
+    queue.enqueue('Twix'));
+    queue.enqueue('Skittles');
+    expect(queue.peek()).toEqual('Kitty');
+    queue.dequeue();
+    expect(queue.peek()).toEqual('Twix');
+    queue.dequeue();
+    expect(queue.peek()).toEqual('Skittles');
+    queue.dequeue();
+    expect(queue.peek()).toEqual('Exception: Empty Queue');
   });
 
 });

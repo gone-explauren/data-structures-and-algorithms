@@ -2,9 +2,17 @@
 
 ## Notes and Whiteboarding:
 
+### Linked Lists
+
 ![Linked List Notes](./linked-lists-notes-1.png)
 ![Code Challenge 09 interview 1 whiteboard](../../whiteboard/reverse-linked-list.png)
 ![Code Challenge 09 interview 1 whiteboard](../../whiteboard/linked-list-is-palindrome.png)
+
+### Stacks and Queues
+
+![Stacks and Queues Notes](./stacks-and-queues-notes-1.png)
+![Stacks Notes 02](./stack-notes-2.png)
+![Queue Notes 02](./queue-notes-2.png)
 
 ### References:
 
