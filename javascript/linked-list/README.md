@@ -3,6 +3,8 @@
 ## Notes and Whiteboarding:
 
 ![Linked List Notes](./linked-lists-notes-1.png)
+![Code Challenge 09 interview 1 whiteboard](../../whiteboard/reverse-linked-list.png)
+![Code Challenge 09 interview 1 whiteboard](../../whiteboard/linked-list-is-palindrome.png)
 
 ### References:
 
