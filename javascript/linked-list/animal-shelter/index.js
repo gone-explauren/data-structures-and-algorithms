@@ -50,3 +50,4 @@ class AnimalShelter {
 }
 
 module.exports = AnimalShelter;
+

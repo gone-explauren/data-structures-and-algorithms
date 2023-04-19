@@ -91,7 +91,7 @@ class LinkedList {
   }
 
   appendFront (val) {
-    let node = new ListNode(val);
+    let node = new Node(val);
     if(this.size===0){
       this.head = node;
       this.end = node;
@@ -306,7 +306,33 @@ class PseudoQueue {
 
     return poppedVal;
   }
+}
 
+// this is the code I wrote, but I realise it does not account for if there are multiple unmatched brackets
+// the code I found online was hard to understand, ask for help in class tomorrow
+function validateBrackets(str){
+  if(str.includes('(') || str.includes(')') || str.includes('{') || str.includes('}') || str.includes('[') || str.includes(']')){
+    if(str.includes('(') && !str.includes(')')){
+      return ('This string needs a closing parethesis');
+    }
+    if(str.includes(')') && !str.includes('(')){
+      return ('This string needs a opening parethesis');
+    }
+    if(str.includes('[') && !str.includes(']')){
+      return ('This string needs a closing bracket');
+    }
+    if(str.includes(']') && !str.includes('[')){
+      return ('This string needs a opening bracket');
+    }
+    if(str.includes('{') && !str.includes('}')){
+      return ('This string needs a closing curly bracket');
+    }
+    if(str.includes('}') && !str.includes('{')){
+      return ('This string needs a opening curly bracket');
+    }
+  } else {
+    return ('This string contains no brackets');
+  }
 }
 
 // // global list -- unused.
@@ -327,4 +353,5 @@ module.exports = {
   Stack,
   PseudoQueue,
   Queue,
+  validateBrackets
 };
