@@ -4,6 +4,7 @@ class Node {
   constructor(value) {
     this.value = value;
     this.next = null;
+    this.prev = null;
   }
 }
 
@@ -90,7 +91,7 @@ class LinkedList {
   }
 
   appendFront (val) {
-    let node = new ListNode(val);
+    let node = new Node(val);
     if(this.size===0){
       this.head = node;
       this.end = node;
@@ -201,14 +202,6 @@ class LinkedList {
   }
 }
 
-class ListNode {
-  constructor(data) {
-    this.data = data;
-    this.next = null;
-    this.prev = null;
-  }
-}
-
 class Stack {
   constructor (){
     this.items = new LinkedList();
@@ -269,6 +262,79 @@ class Queue {
   }
 }
 
+class PseudoQueue {
+
+  constructor() {
+    this.rear = null;
+    this.front = null;
+    this.stack1 = new Stack(); // rear of the pseudoQueue
+    this.stack2 = new Stack(); // front of the pseudoQueue
+    this.length = 0;
+  }
+
+  enqueue(value){
+    this.stack1.push(value);
+    this.rear = this.stack1.top;
+    this.length = this.stack1.length + this.stack2.length;
+    return this;
+  }
+
+  dequeue(){
+    let poppedVal;
+
+    if (this.stack2.length){
+      poppedVal = this.stack2.pop();
+      this.front = this.stack2.top;
+      this.length = this.stack1.length + this.stack2.length;
+    }
+
+    else if (this.length === 0) {
+      throw Error('Nothing to dequeue, empty queue');
+    }
+
+    else if(this.stack2.length === 0) {
+      // move the nodes from stack1 to stack2 oneby one
+      // until the last node is on the top of stack2
+      while(this.stack1 .length > 0){
+        this.stack2.push(this.stack1.top.value);
+        this.stack1.pop();
+      }
+      console.log(this.stack2);
+      poppedVal=this.stack2.pop();
+      this.length = this.stack1.length + this.stack2.length;
+    }
+
+    return poppedVal;
+  }
+}
+
+// this is the code I wrote, but I realise it does not account for if there are multiple unmatched brackets
+// the code I found online was hard to understand, ask for help in class tomorrow
+function validateBrackets(str){
+  if(str.includes('(') || str.includes(')') || str.includes('{') || str.includes('}') || str.includes('[') || str.includes(']')){
+    if(str.includes('(') && !str.includes(')')){
+      return ('This string needs a closing parethesis');
+    }
+    if(str.includes(')') && !str.includes('(')){
+      return ('This string needs a opening parethesis');
+    }
+    if(str.includes('[') && !str.includes(']')){
+      return ('This string needs a closing bracket');
+    }
+    if(str.includes(']') && !str.includes('[')){
+      return ('This string needs a opening bracket');
+    }
+    if(str.includes('{') && !str.includes('}')){
+      return ('This string needs a closing curly bracket');
+    }
+    if(str.includes('}') && !str.includes('{')){
+      return ('This string needs a opening curly bracket');
+    }
+  } else {
+    return ('This string contains no brackets');
+  }
+}
+
 // // global list -- unused.
 // // I ended up building new lists for each tests :)
 
@@ -285,5 +351,7 @@ class Queue {
 module.exports = {
   LinkedList,
   Stack,
-  Queue
+  PseudoQueue,
+  Queue,
+  validateBrackets
 };
