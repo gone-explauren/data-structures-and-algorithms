@@ -53,7 +53,7 @@ I worked alone, lacking an interviewer. I completed both challenge, though the s
 
 ## Whiteboard Process
 ![reverse-linked-list](https://user-images.githubusercontent.com/123340286/233491129-f2524937-4525-446a-8969-84ad8e13683a.png)
-![linked-list-is-palindrome](https://user-images.githubusercontent.com/123340286/233491152-583a28dd-020a-47f9-ae9a-0ed0d4a77e1a.png
+![linked-list-is-palindrome](https://user-images.githubusercontent.com/123340286/233491152-583a28dd-020a-47f9-ae9a-0ed0d4a77e1a.png)
 
 ## Solution
 I think that my code for the reverse list challenge would work in a real-life scenario. However, my solution to the verify palindrome challenge has no many holes in the logic and would not work in the real world.
