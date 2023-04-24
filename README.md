@@ -71,3 +71,14 @@ First of all, interviewing Jonathan while he worked through the problem that was
 
 ## Solution
 I am confident my code will work, I feel as though I was able to catch the edge cases and make any needed adjustments to my code as I went.
+
+# Breadth-First Traversal of a K-ary Tree
+
+## Whiteboard Process
+
+![breadth-first-k-ary-tree](https://user-images.githubusercontent.com/123340286/234069560-5f14cd09-737c-48fc-9b7e-fa72f12d7f4a.png)
+
+## Solution
+This was a whiteboard only warm-up. This code has not been run or tested.
+
+
