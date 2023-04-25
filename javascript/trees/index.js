@@ -59,6 +59,29 @@ class BinaryTree {
     return result;
   }
 
+  findMax() {
+    let node = this.root;
+    let max = -1;
+
+    let visited = new Queue();
+    visited.enqueue(node);
+    while (!visited.isEmpty()) {
+      let current = visited.dequeue();
+      if (current !== null) {
+        if (current.value > max) {
+          max = current.value;
+        }
+        if (current.left) {
+          visited.enqueue(current.left);
+        }
+        if (current.right) {
+          visited.enqueue(current.right);
+        }
+      }
+    }
+    return max;
+  }
+
   breadthFirst(node) {
     let visited = new Queue();
     let arr = [];
@@ -87,29 +110,6 @@ class BinaryTree {
         }
       }
     }
-  }
-
-  findMax() {
-    let node = this.root;
-    let max = -1;
-
-    let visited = new Queue();
-    visited.enqueue(node);
-    while (!visited.isEmpty()) {
-      let current = visited.dequeue();
-      if (current !== null) {
-        if (current.value > max) {
-          max = current.value;
-        }
-        if (current.left) {
-          visited.enqueue(current.left);
-        }
-        if (current.right) {
-          visited.enqueue(current.right);
-        }
-      }
-    }
-    return max;
   }
 }
 
