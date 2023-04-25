@@ -68,4 +68,15 @@ describe('Testing binary search tree', () => {
     expect(max).toEqual(-1);
   });
 
+  xtest('Can traverse tree breadth first', () => {
+    let node = new Node(5);
+    let tree = new BinarySearchTree(node);
+
+    tree.add(8);
+    tree.add(6);
+    tree.add(10);
+
+    expect(tree.breadthFirst).toEqual(6, 8, 10);
+  });
+
 });
