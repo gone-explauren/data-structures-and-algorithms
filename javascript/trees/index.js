@@ -1,5 +1,5 @@
-'use strict'
 'use strict';
+const { Queue } = require('../linked-list/index.js');
 
 class Node {
   constructor(val) {
@@ -58,6 +58,59 @@ class BinaryTree {
     traverse(this.root);
     return result;
   }
+
+  breadthFirst(node) {
+    let visited = new Queue();
+    let arr = [];
+    visited.enqueue(node);
+    while (!visited.isEmpty()) {
+      let current = visited.dequeue();
+      arr.push(current.value);
+      if (current.left) {
+        visited.enqueue(current.left);
+      }
+      if (current.right) {
+        visited.enqueue(current.right);
+      }
+    }
+    return arr;
+  }
+
+  breadthFirstKary(node) {
+    let visited = new Queue();
+    visited.enqueue(node);
+    while (!visited.isEmpty()) {
+      let current = visited.dequeue();
+      if (current.children) {
+        for (let i = 0; i < current.children.length; i++) {
+          visited.enqueue(current.children[i]);
+        }
+      }
+    }
+  }
+
+  findMax() {
+    let node = this.root;
+    let max = -1;
+
+    let visited = new Queue();
+    visited.enqueue(node);
+    while (!visited.isEmpty()) {
+      let current = visited.dequeue();
+      if (current !== null) {
+        if (current.value > max) {
+          max = current.value;
+        }
+        if (current.left) {
+          visited.enqueue(current.left);
+        }
+        if (current.right) {
+          visited.enqueue(current.right);
+        }
+      }
+    }
+    return max;
+  }
 }
 
 class BinarySearchTree extends BinaryTree {
@@ -114,4 +167,8 @@ class BinarySearchTree extends BinaryTree {
   }
 }
 
-module.exports = {BinaryTree, BinarySearchTree, Node};
+module.exports = {
+  Node,
+  BinaryTree,
+  BinarySearchTree
+};
