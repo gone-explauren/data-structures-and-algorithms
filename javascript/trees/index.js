@@ -174,15 +174,15 @@ function breadthFirst(tree){
 function treeFizzBuzz (tree) {
   let traverse = (node) => {
     if(node.data%3===0 && node.data%5===0){
-      console.log(node.data, 'is divisible by 5 and 3, FizzBuzz');
+      console.log(node.data, 'is divisible by 5 and 3, now FizzBuzz');
       node.data = 'FizzBuzz';
     }
     else if(node.data%3===0){
-      console.log(node.data, 'is divisible by 3, Fizz');
+      console.log(node.data, 'is divisible by 3, now Fizz');
       node.data = 'Fizz';
     }
     else if(node.data%5===0){
-      console.log(node.data, 'is divisible by 5, Buzz');
+      console.log(node.data, 'is divisible by 5, now Buzz');
       node.data = 'Buzz';
     }
     else{
