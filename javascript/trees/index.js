@@ -82,23 +82,6 @@ class BinaryTree {
     return max;
   }
 
-  breadthFirst(node) {
-    let visited = new Queue();
-    let arr = [];
-    visited.enqueue(node);
-    while (!visited.isEmpty()) {
-      let current = visited.dequeue();
-      arr.push(current.value);
-      if (current.left) {
-        visited.enqueue(current.left);
-      }
-      if (current.right) {
-        visited.enqueue(current.right);
-      }
-    }
-    return arr;
-  }
-
   breadthFirstKary(node) {
     let visited = new Queue();
     visited.enqueue(node);
@@ -167,8 +150,62 @@ class BinarySearchTree extends BinaryTree {
   }
 }
 
+function breadthFirst(tree){
+  let arrQueue = [];
+  let returnArr = [];
+  arrQueue.push(tree.root);
+
+  while(arrQueue[0]){
+    let current = arrQueue.shift();
+    returnArr.push(current.data);
+    if(current.left){
+      arrQueue.push(current.left);
+    }
+    if(current.right){
+      arrQueue.push(current.right);
+    }
+    console.log(returnArr);
+  }
+
+  return returnArr;
+
+}
+
+function treeFizzBuzz (tree) {
+  let traverse = (node) => {
+    if(node.data%3===0 && node.data%5===0){
+      console.log(node.data, 'is divisible by 5 and 3, now FizzBuzz');
+      node.data = 'FizzBuzz';
+    }
+    else if(node.data%3===0){
+      console.log(node.data, 'is divisible by 3, now Fizz');
+      node.data = 'Fizz';
+    }
+    else if(node.data%5===0){
+      console.log(node.data, 'is divisible by 5, now Buzz');
+      node.data = 'Buzz';
+    }
+    else{
+      let num = node.data;
+      node.data = num.toString();
+    }
+
+    if (node.left) {
+      traverse(node.left);
+    }
+    if (node.right) {
+      traverse(node.right);
+    }
+  };
+  traverse(tree.root);
+  return tree;
+}
+
+
 module.exports = {
   Node,
   BinaryTree,
-  BinarySearchTree
+  BinarySearchTree,
+  breadthFirst,
+  treeFizzBuzz
 };
