@@ -1,13 +1,15 @@
 'use strict';
 
 const { insertionSort, mergeSort } = require('./index');
+const { comparison, sortTitle, sortYear } = require('./movie-comparisons/index.js');
+const { Movies } = require('./movie-comparisons/movies.js');
 
 describe('Testing insertionSort function', () => {
   test('Should sort any array', () => {
-    let arr = [8,4,23,42,16,15];
-    let reverseSorted = [20,18,12,8,5,-2];
-    let fewUniques = [5,12,7,5,5,7];
-    let nearlySorted = [2,3,5,7,13,11];
+    let arr = [8, 4, 23, 42, 16, 15];
+    let reverseSorted = [20, 18, 12, 8, 5, -2];
+    let fewUniques = [5, 12, 7, 5, 5, 7];
+    let nearlySorted = [2, 3, 5, 7, 13, 11];
 
     expect(insertionSort(arr)).toEqual([4, 8, 15, 16, 23, 42]);
     expect(insertionSort(reverseSorted)).toEqual([-2, 5, 8, 12, 18, 20]);
@@ -18,18 +20,52 @@ describe('Testing insertionSort function', () => {
 
 describe('Testing mergeSort function', () => {
   test('Should sort any array', () => {
-    let arr = [8,4,23,42,16,15];
+    let arr = [8, 4, 23, 42, 16, 15];
     mergeSort(arr);
-    let reverseSorted = [20,18,12,8,5,-2];
+    let reverseSorted = [20, 18, 12, 8, 5, -2];
     mergeSort(reverseSorted);
-    let fewUniques = [5,12,7,5,5,7];
+    let fewUniques = [5, 12, 7, 5, 5, 7];
     mergeSort(fewUniques);
-    let nearlySorted = [2,3,5,7,13,11];
+    let nearlySorted = [2, 3, 5, 7, 13, 11];
     mergeSort(nearlySorted);
 
     expect(arr).toEqual([4, 8, 15, 16, 23, 42]);
     expect(reverseSorted).toEqual([-2, 5, 8, 12, 18, 20]);
     expect(fewUniques).toEqual([5, 5, 5, 7, 7, 12]);
     expect(nearlySorted).toEqual([2, 3, 5, 7, 11, 13]);
+  });
+});
+
+describe('Testing comparison function', () => {
+  test('Should sort movies by year', () => {
+    const movies = sortYear(Movies);
+    expect(movies.map((m) => m.title)).toEqual([
+      "The Goonies",
+      "Beetlejuice",
+      "Hocus Pocus",
+      "The Fifth Element",
+      "The Emporer\'s New Groove",
+      "Amelie",
+      "Shaun of the Dead",
+      "Scott Pilgrim Vs the World",
+      "The Grand Budapest Hotel",
+      "Detective Pikachu",
+    ]);
+  });
+
+  test('Should sort movies by title', () => {
+    const movies = sortYear(Movies);
+    expect(movies.map((m) => m.title)).toEqual([
+      "Amelie",
+      "Beetlejuice",
+      "Detective Pikachu",
+      "The Emporer\'s New Groove",
+      "The Fifth Element",
+      "The Goonies",
+      "The Grand Budapest Hotel",
+      "Hocus Pocus",
+      "Scott Pilgrim Vs the World",
+      "Shaun of the Dead",
+    ]);
   });
 });
