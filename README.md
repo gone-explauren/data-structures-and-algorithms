@@ -81,4 +81,18 @@ I am confident my code will work, I feel as though I was able to catch the edge 
 ## Solution
 This was a whiteboard only warm-up. This code has not been run or tested.
 
+# Technical Interview III
+I worked solo for this interview, and thus it was not an interview, but simply a whiteboard challenge.
+
+## Whiteboard Process
+
+![merge-sort-1](https://github.com/gone-explauren/data-structures-and-algorithms/assets/123340286/f7de8c0a-863d-48c0-827d-6c7a1f7bbd37)
+![merge-sort-2](https://github.com/gone-explauren/data-structures-and-algorithms/assets/123340286/6fed363b-035a-4303-9cfd-887fb98f83a3)
+![insertion-sort](https://github.com/gone-explauren/data-structures-and-algorithms/assets/123340286/68c833c6-51a4-4d99-8578-17f147b0e05c)
+
+## Approach & Efficiency
+These sorting algorithms have been very hard for me to understand, even when I see an example. I used the internet for help on these two, and while I get the overall gist of how they work, the code itself is pretty confusing to me still and it was hard for me to describe what was happening while trying to reference the code.
+
+## Solution
+I know the code works, because I didn't rite it all myself. However, I could not tell you fully how or why it works. So. There's that.
 
