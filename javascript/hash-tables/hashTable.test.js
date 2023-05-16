@@ -1,6 +1,6 @@
 'use strict';
 
-const {HashTable} = require('./HashTable');
+const { HashTable, firstDupe } = require('./hashTable/index.js');
 
 describe('Testing Hash Table', () => {
   test('Should create a new hash table', () => {
@@ -17,5 +17,21 @@ describe('Testing Hash Table', () => {
     expect(table.get('name').head.next.value.name).toEqual('Jessie');
     expect(table.get('test')).toBeFalsy();
     expect(table.keys()).toEqual(' 3 4');
+  });
+});
+
+describe('Code Challenge 31', () => {
+  test('Should return the first word that is a duplicate', () => {
+    let str = '	I had the story, bit by bit, from various people, and, as generally happens in such cases, each time it was a different story.';
+    expect(firstDupe(str)).toEqual('bit');
+
+    str = 'Happy families are all alike; every unhappy family is unhappy in its own way';
+    expect(firstDupe(str)).toEqual('unhappy');
+
+    str = 'There was a hand in the darkness, and it held a knife.';
+    expect(firstDupe(str)).toEqual('a');
+
+    str = 'It was a pleasure to burn.';
+    expect(firstDupe(str)).toEqual('No Matches');
   });
 });
