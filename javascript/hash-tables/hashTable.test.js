@@ -18,9 +18,7 @@ describe('Testing Hash Table', () => {
     expect(table.get('test')).toBeFalsy();
     expect(table.keys()).toEqual(' 3 4');
   });
-});
 
-describe('Code Challenge 31', () => {
   test('Should return the first word that is a duplicate', () => {
     let str = '	I had the story, bit by bit, from various people, and, as generally happens in such cases, each time it was a different story.';
     expect(firstDupe(str)).toEqual('bit');
