@@ -35,25 +35,22 @@ describe('Testing Hash Table', () => {
 
   test('Should join and return all keys and associated values', () => {
     let map1 = {
-      1: 'River',
-      2: 'willaM',
-      3: 'mcKenzie',
+      'River': 'smart birb',
+      'Poppy': 'naughty boy',
+      'Shasta': 'lil baby',
     };
 
     let map2 = {
-      1: 'bird',
-      2: 'Birb',
-      3: 'b0rb',
-      4: 'birbbY'
+      'River': 'says "I love you"',
+      'Poppy': 'says "here kitty kitty"',
     };
 
     console.log(leftJoin(map1, map2));
 
     expect(leftJoin(map1, map2)).toEqual([
-      [ '1', 'River', 'bird' ],
-      [ '2', 'willaM', 'Birb' ],
-      [ '3', 'mcKenzie', 'b0rb' ],
-      [ '4', null, 'birbbY' ]
+      [ 'River', 'smart birb', 'says "I love you"' ],
+      [ 'Poppy', 'naughty boy', 'says "here kitty kitty' ],
+      [ 'Shasta', 'lil baby', null ]
     ]);
   });
 });
