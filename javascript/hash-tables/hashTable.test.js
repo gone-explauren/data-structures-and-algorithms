@@ -1,6 +1,6 @@
 'use strict';
 
-const { HashTable, firstDupe } = require('./hashTable/index.js');
+const { HashTable, firstDupe, leftJoin } = require('./hashTable/index.js');
 
 describe('Testing Hash Table', () => {
   test('Should create a new hash table', () => {
@@ -31,5 +31,29 @@ describe('Testing Hash Table', () => {
 
     str = 'It was a pleasure to burn.';
     expect(firstDupe(str)).toEqual('No Matches');
+  });
+
+  test('Should join and return all keys and associated values', () => {
+    let map1 = {
+      1: 'River',
+      2: 'willaM',
+      3: 'mcKenzie',
+    };
+
+    let map2 = {
+      1: 'bird',
+      2: 'Birb',
+      3: 'b0rb',
+      4: 'birbbY'
+    };
+
+    console.log(leftJoin(map1, map2));
+
+    expect(leftJoin(map1, map2)).toEqual([
+      [ '1', 'River', 'bird' ],
+      [ '2', 'willaM', 'Birb' ],
+      [ '3', 'mcKenzie', 'b0rb' ],
+      [ '4', null, 'birbbY' ]
+    ]);
   });
 });
