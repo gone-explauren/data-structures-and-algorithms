@@ -12,7 +12,7 @@ class HashTable {
     let hashValue = this.hash(key);
 
     if (!this.buckets[hashValue]) {
-      this.buckets[hashValue] = new LinkedList({[key]: value})
+      this.buckets[hashValue] = new LinkedList({[key]: value});
     }
     else {
       this.buckets[hashValue].append({[key]: value})
@@ -23,7 +23,7 @@ class HashTable {
     let hashValue = this.hash(key);
 
     if (!this.buckets[hashValue]){
-      return null
+      return null;
     }
     // imitate the LinkedList method .includes(), but instead of returning a boolean we return the value from the bucket
     else {
@@ -34,7 +34,7 @@ class HashTable {
         }
         else if (currentNode.next) {
           currentNode = currentNode.next
-        } else return null
+        } else return null;
       }
     }
   }
@@ -67,7 +67,7 @@ class HashTable {
       // if bucket.head is truthy, then we know that it has a LinkedList as it's value
       if(bucket.head){
         // begin to traverse the linked list
-        let currentNode = bucket.head
+        let currentNode = bucket.head;
 
         while(currentNode){
           // assuming the value of our bucket.head is an object, it can potentially have more than one key:value pair
@@ -79,7 +79,7 @@ class HashTable {
             if(!uniqueKeys.includes(key)){
               uniqueKeys.push(key)
             }
-          })
+          });
 
           // once we're done iterating through one node of a linkedlist, we check if there is another node following
           if (currentNode.next) {
@@ -88,14 +88,14 @@ class HashTable {
         }
 
       }
-    })
+    });
 
     return uniqueKeys;
   }
 
   hash(key) {
 
-    key = `${key}`
+    key = `${key}`;
     let spreadKey = [...key];
 
     let hashedKeys = [];
