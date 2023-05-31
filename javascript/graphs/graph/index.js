@@ -73,6 +73,17 @@ function breadthFirst(node, graph) {
   return nodes;
 }
 
+function depthFirst(node, arr=[]){
+  arr.push(node.data);
+  let edges = this.getNeighbors(node);
+  edges.forEach(neighbor => {
+    if(!arr.includes(neighbor.node.data)){
+      this.graphDepthFirst(neighbor.node, arr);
+    }
+  });
+  return arr;
+}
+
 module.exports = {
-  Graph, breadthFirst
+  Graph, breadthFirst, depthFirst
 };

@@ -1,6 +1,8 @@
 'use strict';
 
-const { Graph, breadthFirst } = require('./graph/index.js');
+const {
+  Graph, breadthFirst, depthFirst
+} = require('./graph/index.js');
 const { businessTrip } = require ('./graph/BusinessTrip/index.js')
 
 describe('Testing graphs', () => {
@@ -71,6 +73,59 @@ describe('Traverse a graph breadth first', () => {
     let vals = arr.map(node => node.data);
     console.log(vals);
     expect(vals).toEqual([1,2,3,4,6,5]);
+  });
+});
+
+describe('Traverse a graph depth first', () => {
+  let graph = new Graph();
+  graph.addNode('A');
+  graph.addNode('B');
+  graph.addNode('C');
+  graph.addNode('D');
+  graph.addNode('E');
+  graph.addNode('F');
+  graph.addNode('G');
+  graph.addNode('H');
+
+  let nodes = graph.getNodes();
+  let nodeA = nodes[0];
+  let nodeB = nodes[1];
+  let nodeC = nodes[2];
+  let nodeD = nodes[3];
+  let nodeE = nodes[4];
+  let nodeF = nodes[5];
+  let nodeG = nodes[6];
+  let nodeH = nodes[7];
+
+  graph.addEdge(nodeA, nodeB);
+  graph.addEdge(nodeA, nodeD);
+
+  graph.addEdge(nodeB, nodeA);
+  graph.addEdge(nodeB, nodeC);
+  graph.addEdge(nodeB, nodeD);
+
+  graph.addEdge(nodeC, nodeB);
+  graph.addEdge(nodeC, nodeG);
+
+  graph.addEdge(nodeD, nodeA);
+  graph.addEdge(nodeD, nodeB);
+  graph.addEdge(nodeD, nodeE);
+  graph.addEdge(nodeD, nodeH);
+  graph.addEdge(nodeD, nodeF);
+
+  graph.addEdge(nodeE, nodeD);
+
+  graph.addEdge(nodeF, nodeD);
+  graph.addEdge(nodeF, nodeH);
+
+  graph.addEdge(nodeG, nodeC);
+
+  graph.addEdge(nodeH, nodeD);
+  graph.addEdge(nodeH, nodeF);
+
+  test('Should be able to perform a breadth first traversal', () => {
+
+    expect(graph.graphDepthFirst(nodeA)).toEqual(['A','B','C','G','D','E','H','F']);
   });
 });
 
